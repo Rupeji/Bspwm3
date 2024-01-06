@@ -224,7 +224,14 @@ sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powe
 cd Bspwm3/
 sudo cp -f Zsh/powerlevel10k/user/* "$HOME/"
 sudo cp -f Zsh/powerlevel10k/root/* "/root/"
-sudo cp -f $HOME/Bspwm3/config/zsh/* "/root/.config/zsh/"
+sudo cp -f $HOME/Bspwm3/config/zsh/* "/root/.config/zsh/"`
+
+
+logo "Changing default sddm theme"
+
+git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
+sudo mv ~/simple-sddm /usr/share/sddm/themes/
+echo 'xrandr --output Virtual1 --mode 1920x1080 --rate 59.96' | sudo tee -a /user/share/sddm/scripts/Xsetup
 
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
