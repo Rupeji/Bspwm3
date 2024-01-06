@@ -53,7 +53,7 @@ fi
 ########## ---------- Welcome ---------- ##########
 
 logo "Welcome!"
-printf '%s%sThis script will check if you have the necessary dependencies, and if not, it will install them. Then, it will clone the RICE in your HOME directory.\nAfter that, it will create a secure backup of your files, and then copy the new files to your computer.\n\nMy dotfiles DO NOT modify any of your system configurations.\nYou will be prompted for your root password to install missing dependencies and/or to switch to zsh shell if its not your default.\n\nThis script doesnt have the potential power to break your system, it only copies files from my repository to your HOME directory.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
+printf '%s%sDeseas instalar.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
 
 while true; do
 	read -rp " Do you wish to continue? [y/N]: " yn
@@ -203,14 +203,17 @@ printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "
     		
 sudo usermod --shell /usr/bin/zsh $USER
 sudo usermod --shell /usr/bin/zsh root
+cd Bspwm3/
 cp -rv "$1/Zsh/.zshrc" "$HOME/"
 sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
 # powerlevel10k
+cd
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
-cp -rv $1/Zsh/powerlevel10k/user/* "$HOME/"
-sudo cp -rv $1/Zsh/powerlevel10k/root/* "/root/"
+cd Bspwm3/
+sudo cp -f Zsh/powerlevel10k/user/* "$HOME/"
+sudo cp -f Zsh/powerlevel10k/root/* "/root/"
 
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
-
+reboot
