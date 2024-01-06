@@ -6,6 +6,10 @@
 #   Author: z0mbi3
 #	url: https://github.com/gh0stzk
 
+function pausa(){
+read -p "$*"
+}
+
 CRE=$(tput setaf 1)
 CYE=$(tput setaf 3)
 CGR=$(tput setaf 2)
@@ -116,12 +120,14 @@ printf "Copying files to respective directories..\n"
 mkdir "$HOME/.config/"
 rename 's/config/.config/' *
 cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
-cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
+sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
-cp -f "$HOME"/Bspwm3/home/.zshrc "$HOME"
+cp -f $HOME/Bspwm3/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 3
+echo -e "Pulsa [Enter] para continuar..."
+pausa
 
 ########## ---------- Installing Paru & others ---------- ##########
 
