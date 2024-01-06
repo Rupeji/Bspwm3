@@ -122,7 +122,12 @@ rename 's/config/.config/' *
 cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
 sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
-cp -f $HOME/Bspwm3/home/.zshrc "$HOME"
+cd
+cd /usr/share/fonts
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
+cd /usr/share/fonts
+sudo unzip Hack.zip
+sudo rm Hack.zip
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 3
@@ -206,11 +211,9 @@ sleep 2
 logo "Changing default shell to zsh"
 printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
 # Cambia la shell a zsh
-    		
+cp -rv $HOME/Bspwm3/home/.zshrc "$HOME"    		
 sudo usermod --shell /usr/bin/zsh $USER
 sudo usermod --shell /usr/bin/zsh root
-cd Bspwm3/
-#cp -rv "$HOME/Zsh/.zshrc" "$HOME/"
 sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
 # powerlevel10k
 cd
