@@ -17,7 +17,7 @@ super + Return
  
 # program launcher
 super + d
-	/usr/bin/rofi -show run
+	OpenApps --floating
  
 # make sxhkd reload its configuration files:
 super + Escape
