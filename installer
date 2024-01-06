@@ -115,8 +115,8 @@ printf "Copying files to respective directories..\n"
 
 mkdir "$HOME/.config/"
 rename 's/config/.config/' *
-cp -rv $1/Bspwm3/config/* "$HOME/.config/"
-cp -rv $1/Bspwm3/misc/fonts/* "/usr/share/fonts/"
+cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
+cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
 cp -f "$HOME"/Bspwm3/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
@@ -204,7 +204,7 @@ printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "
 sudo usermod --shell /usr/bin/zsh $USER
 sudo usermod --shell /usr/bin/zsh root
 cd Bspwm3/
-cp -rv "$1/Zsh/.zshrc" "$HOME/"
+#cp -rv "$HOME/Zsh/.zshrc" "$HOME/"
 sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
 # powerlevel10k
 cd
