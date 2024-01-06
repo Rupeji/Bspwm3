@@ -109,8 +109,8 @@ clear
 
 logo "Downloading dotfiles"
 
-repo_url="https://github.com/gh0stzk/dotfiles"
-repo_dir="$HOME/dotfiles"
+repo_url="https://github.com/Rupeji/Bspwm3"
+repo_dir="$HOME/Bspwm3"
 
 # Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
 	if [ -d "$repo_dir" ]; then
