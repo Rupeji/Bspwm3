@@ -329,7 +329,15 @@ logo "Changing default shell to zsh"
 	if [[ $SHELL != "/usr/bin/zsh" ]]; then
 		printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
 		# Cambia la shell a zsh
-		chsh -s /usr/bin/zsh
+    		sudo usermod --shell /usr/bin/zsh $USER
+    		sudo usermod --shell /usr/bin/zsh root
+    		cp -rv "$1/Zsh/.zshrc" "$HOME/"
+    		sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
+		# powerlevel10k
+    		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+    		sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
+    		cp -rv $1/dotfiles/powerlevel10k/user/.p10k.zsh "$HOME/"
+    		sudo cp -rv $1/dotfiles/powerlevel10k/root/.p10k.zsh "/root/"
 		printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 	else
 		printf "%s%sYour shell is already zsh\nGood bye! installation finished, now reboot%s\n" "${BLD}" "${CGR}" "${CNC}"
