@@ -131,8 +131,9 @@ sudo rm Hack.zip
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 3
-echo -e "Pulsa [Enter] para continuar..."
-pausa
+
+#echo -e "Pulsa [Enter] para continuar..."
+#pausa
 
 ########## ---------- Installing Paru & others ---------- ##########
 
