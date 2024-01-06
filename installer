@@ -222,6 +222,7 @@ sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powe
 cd Bspwm3/
 sudo cp -f Zsh/powerlevel10k/user/* "$HOME/"
 sudo cp -f Zsh/powerlevel10k/root/* "/root/"
+sudo cp -f $HOME/Bspwm3/config/zsh/* "/root/.config/zsh/"
 
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
