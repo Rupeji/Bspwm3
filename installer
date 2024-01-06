@@ -114,6 +114,7 @@ logo "Installing dotfiles.."
 printf "Copying files to respective directories..\n"
 
 mkdir "$HOME/.config/"
+rename 's/config/.config/' *
 cp -rv $1/Bspwm3/config/* "$HOME/.config/"
 cp -rv $1/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
