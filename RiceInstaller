@@ -110,12 +110,6 @@ clear
 repo_url="https://github.com/Rupeji/Bspwm3"
 repo_dir="$HOME/Bspwm3"
 
-# Verifica si el directorio del repositorio ya existe y, si es así, lo elimina
-	if [ -d "$repo_dir" ]; then
-		printf "Removing existing dotfiles repository\n"
-		rm -rf "$repo_dir"
-	fi
-
 # Clona el repositorio
 printf "Cloning dotfiles from %s\n" "$repo_url"
 git clone https://github.com/Rupeji/Bspwm3.git
@@ -160,7 +154,7 @@ fi
 #  fi
 #done
 
-[ -f ~/.zshrc ] && mv ~/.zshrc ~/.RiceBackup/.zshrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
+#[ -f ~/.zshrc ] && mv ~/.zshrc ~/.RiceBackup/.zshrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 
 printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 5
@@ -176,73 +170,11 @@ printf "Copying files to respective directories..\n"
 [ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
 [ ! -d ~/.local/share/asciiart ] && mkdir -p ~/.local/share/asciiart
 
-for archivos in ~/Bspwm3/config/*; do
-  cp -R "${archivos}" ~/.config/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
 
-for archivos in ~/Bspwm3/misc/bin/*; do
-  cp -R "${archivos}" ~/.local/bin/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
+mkdir "$HOME/.config"
+cp -rv $1/Bspwm3/config/* "$HOME/.config/"
+cp -rv $1/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
-for archivos in ~/Bspwm3/misc/applications/*; do
-  cp -R "${archivos}" ~/.local/share/applications/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
-
-for archivos in ~/Bspwm3/misc/fonts/*; do
-  cp -R "${archivos}" ~/.local/share/fonts/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
-
-#for archivos in ~/Bspwm3/misc/asciiart/*; do
-#  cp -R "${archivos}" ~/.local/share/asciiart/
-#  if [ $? -eq 0 ]; then
-#	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-#	sleep 1
-#  else
-#	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-#	sleep 1
-#  fi
-#done
-
-#for archivos in ~/Bspwm3/misc/firefox/*; do
-#  cp -R "${archivos}" ~/.mozilla/firefox/*.default-release/
-#  if [ $? -eq 0 ]; then
-#	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-#	sleep 1
-#  else
-#	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-#	sleep 1
-#  fi
-#done
-
-#cp -r "$HOME"/Bspwm3/misc/startup-page "$HOME"/.local/share
 cp -f "$HOME"/Bspwm3/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
@@ -323,21 +255,19 @@ sleep 2
 ########## --------- Changing shell to zsh ---------- ##########
 
 logo "Changing default shell to zsh"
+printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
+# Cambia la shell a zsh
+    		
+sudo usermod --shell /usr/bin/zsh $USER
+sudo usermod --shell /usr/bin/zsh root
+cp -rv "$1/Zsh/.zshrc" "$HOME/"
+sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
+# powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
+cp -rv $1/Zsh/powerlevel10k/user/* "$HOME/"
+sudo cp -rv $1/Zsh/powerlevel10k/root/* "/root/"
 
-	if [[ $SHELL != "/usr/bin/zsh" ]]; then
-		printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
-		# Cambia la shell a zsh
-    		sudo usermod --shell /usr/bin/zsh $USER
-    		sudo usermod --shell /usr/bin/zsh root
-    		cp -rv "$1/Zsh/.zshrc" "$HOME/"
-    		sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
-		# powerlevel10k
-    		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-    		sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
-    		cp -rv $1/Zsh/powerlevel10k/user/.p10k.zsh "$HOME/"
-    		sudo cp -rv $1/Zsh/powerlevel10k/root/.p10k.zsh "/root/"
-		printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
-	else
-		printf "%s%sYour shell is already zsh\nGood bye! installation finished, now reboot%s\n" "${BLD}" "${CGR}" "${CNC}"
-	fi
-zsh
+printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
+
+
