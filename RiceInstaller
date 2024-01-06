@@ -107,8 +107,6 @@ clear
 
 ########## ---------- Cloning the Rice! ---------- ##########
 
-logo "Downloading dotfiles"
-
 repo_url="https://github.com/Rupeji/Bspwm3"
 repo_dir="$HOME/Bspwm3"
 
@@ -120,7 +118,7 @@ repo_dir="$HOME/Bspwm3"
 
 # Clona el repositorio
 printf "Cloning dotfiles from %s\n" "$repo_url"
-git clone --depth=1 "$repo_url" "$repo_dir"
+git clone https://github.com/Rupeji/Bspwm3.git
 
 sleep 2
 clear
@@ -135,14 +133,14 @@ if [ ! -d "$backup_folder" ]; then
   mkdir -p "$backup_folder"
 fi
 
-for folder in bspwm alacritty picom rofi eww sxhkd dunst polybar ncmpcpp nvim ranger zsh mpd paru; do
-  if [ -d "$HOME/.config/$folder" ]; then
-    mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
-    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
-  else
-    echo "The folder $folder does not exist in $HOME/.config/"
-  fi
-done
+#for folder in bspwm alacritty picom rofi eww sxhkd dunst polybar ncmpcpp nvim ranger zsh mpd paru; do
+#  if [ -d "$HOME/.config/$folder" ]; then
+#    mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
+#    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
+#  else
+#    echo "The folder $folder does not exist in $HOME/.config/"
+#  fi
+#done
 
 #for folder in chrome; do
 #  if [ -d "$HOME"/.mozilla/firefox/*.default-release/$folder ]; then
@@ -178,7 +176,7 @@ printf "Copying files to respective directories..\n"
 [ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
 [ ! -d ~/.local/share/asciiart ] && mkdir -p ~/.local/share/asciiart
 
-for archivos in ~/dotfiles/config/*; do
+for archivos in ~/Bspwm3/config/*; do
   cp -R "${archivos}" ~/.config/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -189,7 +187,7 @@ for archivos in ~/dotfiles/config/*; do
   fi
 done
 
-for archivos in ~/dotfiles/misc/bin/*; do
+for archivos in ~/Bspwm3/misc/bin/*; do
   cp -R "${archivos}" ~/.local/bin/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -200,7 +198,7 @@ for archivos in ~/dotfiles/misc/bin/*; do
   fi
 done
 
-for archivos in ~/dotfiles/misc/applications/*; do
+for archivos in ~/Bspwm3/misc/applications/*; do
   cp -R "${archivos}" ~/.local/share/applications/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -211,7 +209,7 @@ for archivos in ~/dotfiles/misc/applications/*; do
   fi
 done
 
-for archivos in ~/dotfiles/misc/fonts/*; do
+for archivos in ~/Bspwm3/misc/fonts/*; do
   cp -R "${archivos}" ~/.local/share/fonts/
   if [ $? -eq 0 ]; then
 	printf "%s%s%s copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -222,7 +220,7 @@ for archivos in ~/dotfiles/misc/fonts/*; do
   fi
 done
 
-#for archivos in ~/dotfiles/misc/asciiart/*; do
+#for archivos in ~/Bspwm3/misc/asciiart/*; do
 #  cp -R "${archivos}" ~/.local/share/asciiart/
 #  if [ $? -eq 0 ]; then
 #	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -233,7 +231,7 @@ done
 #  fi
 #done
 
-#for archivos in ~/dotfiles/misc/firefox/*; do
+#for archivos in ~/Bspwm3/misc/firefox/*; do
 #  cp -R "${archivos}" ~/.mozilla/firefox/*.default-release/
 #  if [ $? -eq 0 ]; then
 #	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
@@ -244,8 +242,8 @@ done
 #  fi
 #done
 
-#cp -r "$HOME"/dotfiles/misc/startup-page "$HOME"/.local/share
-cp -f "$HOME"/dotfiles/home/.zshrc "$HOME"
+#cp -r "$HOME"/Bspwm3/misc/startup-page "$HOME"/.local/share
+cp -f "$HOME"/Bspwm3/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 3
@@ -336,8 +334,8 @@ logo "Changing default shell to zsh"
 		# powerlevel10k
     		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
     		sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
-    		cp -rv $1/dotfiles/powerlevel10k/user/.p10k.zsh "$HOME/"
-    		sudo cp -rv $1/dotfiles/powerlevel10k/root/.p10k.zsh "/root/"
+    		cp -rv $1/Zsh/powerlevel10k/user/.p10k.zsh "$HOME/"
+    		sudo cp -rv $1/Zsh/powerlevel10k/root/.p10k.zsh "/root/"
 		printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 	else
 		printf "%s%sYour shell is already zsh\nGood bye! installation finished, now reboot%s\n" "${BLD}" "${CGR}" "${CNC}"
