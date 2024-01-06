@@ -50,13 +50,7 @@ result() {
 			;;
 		Virt-manager)
 			result "state=floating desktop=^5 follow=on center=on"
-			;;
-		Thunar)
-			result "state=pseudo_tiled desktop=^2 rectangle=966x576+0+0 follow=on"
-			;;
-		firefox|Navigator)
-			result "desktop=^3 follow=on"
-			;;
+			;;		
 		Transmission-gtk)
 			result "desktop=^6 follow=on"
 			;;
