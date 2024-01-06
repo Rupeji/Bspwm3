@@ -105,73 +105,12 @@ clear
 sleep 2 
 clear
 
-########## ---------- Cloning the Rice! ---------- ##########
-
-repo_url="https://github.com/Rupeji/Bspwm3"
-repo_dir="$HOME/Bspwm3"
-
-# Clona el repositorio
-printf "Cloning dotfiles from %s\n" "$repo_url"
-git clone https://github.com/Rupeji/Bspwm3.git
-
-sleep 2
-clear
-
-########## ---------- Backup files ---------- ##########
-
-logo "Backup files"
-printf "Backup files will be stored in %s%s%s/.RiceBackup%s \n\n" "${BLD}" "${CRE}" "$HOME" "${CNC}"
-sleep 10
-
-if [ ! -d "$backup_folder" ]; then
-  mkdir -p "$backup_folder"
-fi
-
-#for folder in bspwm alacritty picom rofi eww sxhkd dunst polybar ncmpcpp nvim ranger zsh mpd paru; do
-#  if [ -d "$HOME/.config/$folder" ]; then
-#    mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
-#    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
-#  else
-#    echo "The folder $folder does not exist in $HOME/.config/"
-#  fi
-#done
-
-#for folder in chrome; do
-#  if [ -d "$HOME"/.mozilla/firefox/*.default-release/$folder ]; then
-#    mv "$HOME"/.mozilla/firefox/*.default-release/$folder "$backup_folder"/${folder}_$date
-#    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
-#  else
-#    echo "The folder $folder does not exist in $HOME/.mozilla/firefox/"
-#  fi
-#done
-
-#for file in user.js; do
-#  if [ -e "$HOME"/.mozilla/firefox/*.default-release/$file ]; then
-#    mv "$HOME"/.mozilla/firefox/*.default-release/$file "$backup_folder"/${file}_$date
-#    echo "$file file backed up successfully at $backup_folder/${file}_$date"
-#  else
-#    echo "The file $file does not exist in $HOME/.mozilla/firefox/"
-#  fi
-#done
-
-#[ -f ~/.zshrc ] && mv ~/.zshrc ~/.RiceBackup/.zshrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
-
-printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
-sleep 5
-
 ########## ---------- Copy the Rice! ---------- ##########
 
 logo "Installing dotfiles.."
 printf "Copying files to respective directories..\n"
 
-[ ! -d ~/.config ] && mkdir -p ~/.config
-[ ! -d ~/.local/bin ] && mkdir -p ~/.local/bin
-[ ! -d ~/.local/share/applications ] && mkdir -p ~/.local/share/applications
-[ ! -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
-[ ! -d ~/.local/share/asciiart ] && mkdir -p ~/.local/share/asciiart
-
-
-mkdir "$HOME/.config"
+mkdir "$HOME/.config/"
 cp -rv $1/Bspwm3/config/* "$HOME/.config/"
 cp -rv $1/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 
