@@ -74,7 +74,7 @@ dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd \
 			  webp-pixbuf-loader xorg-xprop xorg-xkill physlock papirus-icon-theme \
 			  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
 			  zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting \
-			  imagemagick xorg-xdpyinfo xorg-xsetroot xorg-xwininfo xorg-xrandr)
+			  imagemagick xorg-xdpyinfo xorg-xsetroot xorg-xwininfo xorg-xrandr kitty)
 
 is_installed() {
   pacman -Qi "$1" &> /dev/null
@@ -144,23 +144,23 @@ for folder in bspwm alacritty picom rofi eww sxhkd dunst polybar ncmpcpp nvim ra
   fi
 done
 
-for folder in chrome; do
-  if [ -d "$HOME"/.mozilla/firefox/*.default-release/$folder ]; then
-    mv "$HOME"/.mozilla/firefox/*.default-release/$folder "$backup_folder"/${folder}_$date
-    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
-  else
-    echo "The folder $folder does not exist in $HOME/.mozilla/firefox/"
-  fi
-done
+#for folder in chrome; do
+#  if [ -d "$HOME"/.mozilla/firefox/*.default-release/$folder ]; then
+#    mv "$HOME"/.mozilla/firefox/*.default-release/$folder "$backup_folder"/${folder}_$date
+#    echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
+#  else
+#    echo "The folder $folder does not exist in $HOME/.mozilla/firefox/"
+#  fi
+#done
 
-for file in user.js; do
-  if [ -e "$HOME"/.mozilla/firefox/*.default-release/$file ]; then
-    mv "$HOME"/.mozilla/firefox/*.default-release/$file "$backup_folder"/${file}_$date
-    echo "$file file backed up successfully at $backup_folder/${file}_$date"
-  else
-    echo "The file $file does not exist in $HOME/.mozilla/firefox/"
-  fi
-done
+#for file in user.js; do
+#  if [ -e "$HOME"/.mozilla/firefox/*.default-release/$file ]; then
+#    mv "$HOME"/.mozilla/firefox/*.default-release/$file "$backup_folder"/${file}_$date
+#    echo "$file file backed up successfully at $backup_folder/${file}_$date"
+#  else
+#    echo "The file $file does not exist in $HOME/.mozilla/firefox/"
+#  fi
+#done
 
 [ -f ~/.zshrc ] && mv ~/.zshrc ~/.RiceBackup/.zshrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 
@@ -222,29 +222,29 @@ for archivos in ~/dotfiles/misc/fonts/*; do
   fi
 done
 
-for archivos in ~/dotfiles/misc/asciiart/*; do
-  cp -R "${archivos}" ~/.local/share/asciiart/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
+#for archivos in ~/dotfiles/misc/asciiart/*; do
+#  cp -R "${archivos}" ~/.local/share/asciiart/
+#  if [ $? -eq 0 ]; then
+#	printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+#	sleep 1
+#  else
+#	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+#	sleep 1
+#  fi
+#done
 
-for archivos in ~/dotfiles/misc/firefox/*; do
-  cp -R "${archivos}" ~/.mozilla/firefox/*.default-release/
-  if [ $? -eq 0 ]; then
-	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	sleep 1
-  else
-	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-	sleep 1
-  fi
-done
+#for archivos in ~/dotfiles/misc/firefox/*; do
+#  cp -R "${archivos}" ~/.mozilla/firefox/*.default-release/
+#  if [ $? -eq 0 ]; then
+#	printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+#	sleep 1
+#  else
+#	printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+#	sleep 1
+#  fi
+#done
 
-cp -r "$HOME"/dotfiles/misc/startup-page "$HOME"/.local/share
+#cp -r "$HOME"/dotfiles/misc/startup-page "$HOME"/.local/share
 cp -f "$HOME"/dotfiles/home/.zshrc "$HOME"
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
