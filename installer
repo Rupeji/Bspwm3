@@ -233,6 +233,8 @@ git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
 sudo mv ~/simple-sddm /usr/share/sddm/themes/
 echo 'xrandr --output Virtual1 --mode 1920x1080 --rate 59.96' | sudo tee -a /user/share/sddm/scripts/Xsetup
 
+printf "\n%s%sEscribe: sudo nano /usr/lib/sddm/sddm.conf.d/default.conf y en Theme añade: Current=simple-sddm.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
+
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
 reboot
