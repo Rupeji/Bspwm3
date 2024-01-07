@@ -194,7 +194,7 @@ cd Bspwm3/
 sudo cp -f ~/Bspwm3/Zsh/powerlevel10k/user/.p10k.zsh "$HOME/"
 sudo cp -f ~/Bspwm3/Zsh/powerlevel10k/root/.p10k.zsh "/root/"
 
-printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
+printf "%s%sShell changed to zsh.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
 git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
 sudo mv ~/simple-sddm /usr/share/sddm/themes/
