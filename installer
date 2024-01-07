@@ -198,7 +198,7 @@ printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC
 
 git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
 sudo mv ~/simple-sddm /usr/share/sddm/themes/
-echo 'xrandr --output Virtual1 --mode 1920x1080 --rate 59.96' | sudo tee -a /user/share/sddm/scripts/Xsetup
+echo 'xrandr --output Virtual-1 --mode 1920x1080 --rate 59.96' | sudo tee -a /user/share/sddm/scripts/Xsetup
 sudo sed -i -e 's/Current=/Current=simple-sddm/g' /usr/lib/sddm/sddm.conf.d/default.conf
 sudo systemctl enable sddm
 
