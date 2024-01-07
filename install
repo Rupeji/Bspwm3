@@ -79,8 +79,8 @@ cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
 sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 cp -rv $HOME/Bspwm3/home/themes/themes.zip "$HOME/.themes/"
 cd .themes/
-sudo unzip themes.zip
-sudo rm themes.zip
+unzip themes.zip
+rm themes.zip
 sed -i -e 's/name="Raleigh"/name="Dracula"/g' $HOME/.gtkrc-2.0
 cd
 cd /usr/share/fonts
