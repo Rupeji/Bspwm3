@@ -78,8 +78,14 @@ printf "Copying files to respective directories..\n"
 
 mkdir "$HOME/.config/"
 rename 's/config/.config/' *
+mkdir "$HOME/.themes/"
+rename 's/config/.themes/' *
 cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
 sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
+cp -rv $HOME/Bspwm3/themes/themes.zip "$HOME/.themes/"
+cd .themes/
+sudo unzip themes.zip
+sudo rm themes.zip
 
 cd
 cd /usr/share/fonts
