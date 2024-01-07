@@ -174,7 +174,7 @@ logo "installing Paru, Eww, tdrop & xqp"
 
 # Intalling picom
 	if command -v picom-ftlabs-git >/dev/null 2>&1; then
-		printf "\n%s%sxqp is already installed%s\n" "${BLD}" "${CGR}" "${CNC}"
+		printf "\n%s%spicom-ftlabs-git is already installed%s\n" "${BLD}" "${CGR}" "${CNC}"
 	else
 		printf "\n%s%sInstalling picom-ftlabs-git, this should be fast!%s\n" "${BLD}" "${CBL}" "${CNC}"
 		paru -S picom-ftlabs-git --skipreview --noconfirm
