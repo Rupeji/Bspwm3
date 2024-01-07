@@ -223,7 +223,8 @@ sleep 2
 logo "Changing default shell to zsh"
 printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
 # Cambia la shell a zsh
-cp -rv $HOME/Bspwm3/home/.zshrc "$HOME"    		
+cp -rv $HOME/Bspwm3/home/.zshrc "$HOME"
+cp -rv $HOME/Bspwm3/home/Music "$HOME"
 sudo usermod --shell /usr/bin/zsh $USER
 sudo usermod --shell /usr/bin/zsh root
 sudo ln -s -f "$HOME/.zshrc" "/root/.zshrc"
