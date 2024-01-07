@@ -191,9 +191,9 @@ cd
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k
 cd Bspwm3/
-sudo cp -f Zsh/powerlevel10k/user/* "$HOME/"
-sudo cp -f Zsh/powerlevel10k/root/* "/root/"
-sudo cp -f $HOME/Bspwm3/config/zsh/* "/root/.config/zsh/"`
+sudo cp -f ~/Bspwm3/Zsh/powerlevel10k/user/.p10k.zsh "$HOME/"
+sudo cp -f ~/Bspwm3/Zsh/powerlevel10k/root/.p10k.zsh "/root/"
+
 
 
 git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
