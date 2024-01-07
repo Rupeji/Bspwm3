@@ -38,7 +38,7 @@ dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd \
 			  feh ueberzug maim pamixer libwebp xdg-user-dirs \
 			  webp-pixbuf-loader xorg-xprop xorg-xkill physlock papirus-icon-theme \
 			  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
-			  zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting \
+			  zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting mousepad \
 			  imagemagick xorg-xdpyinfo xorg-xsetroot xorg-xwininfo xorg-xrandr kitty neofetch \
 			  thunar firefox qt5-quickcontrols2 qt5-graphicaleffects qt5-svg lxappearance sddm wget unzip)
 
