@@ -78,11 +78,9 @@ rename 's/config/.themes/' *
 cp -rv $HOME/Bspwm3/config/* "$HOME/.config/"
 sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 cp -rv $HOME/Bspwm3/home/themes/themes.zip "$HOME/.themes/"
-cd .themes/
+cd ~/.themes/
 unzip themes.zip
-sleep 2
 rm themes.zip
-sleep 1
 sed -i -e 's/name="Raleigh"/name="Dracula"/g' $HOME/.gtkrc-2.0
 sleep 1
 cd
