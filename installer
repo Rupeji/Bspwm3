@@ -24,25 +24,25 @@ logo () {
 	
 	local text="${1:?}"
 	echo -en "                                  
-                   -`
-                  .o+`
+                  `-`
+                 `.o+`
                  `ooo/
                 `+oooo:
                `+oooooo:
-               -+oooooo+:
+              `-+oooooo+:
              `/:-:++oooo+:
             `/++++/+++++++:
            `/++++++++++++++:
           `/+++ooooooooooooo/`
-         ./ooosssso++osssssso+`
-        .oossssso-````/ossssss+`
-       -osssssso.      :ssssssso.
-      :osssssss/        osssso+++.
-     /ossssssss/        +ssssooo/-
+        `./ooosssso++osssssso+`
+       `.oossssso-````/ossssss+`
+      `-osssssso.      :ssssssso.
+     `:osssssss/        osssso+++.
+    `/ossssssss/        +ssssooo/-
    `/ossssso+/:-        -:/+osssso+-
   `+sso+:-`                 `.-/+oso:
  `++:.                           `-/+/
- .`                                 `
+                            `
 			  Arch Installer\n\n"
     printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}" "${CNC}" "${CRE}" "${CNC}"
 }
