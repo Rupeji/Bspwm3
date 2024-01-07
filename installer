@@ -196,11 +196,12 @@ sudo cp -f ~/Bspwm3/Zsh/powerlevel10k/root/.p10k.zsh "/root/"
 
 printf "%s%sShell changed to zsh.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
+sudo systemctl enable sddm
 git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
 sudo mv ~/simple-sddm /usr/share/sddm/themes/
 echo 'xrandr --output Virtual-1 --mode 1920x1080 --rate 59.96' | sudo tee -a /user/share/sddm/scripts/Xsetup
 sudo sed -i -e 's/Current=/Current=simple-sddm/g' /usr/lib/sddm/sddm.conf.d/default.conf
-sudo systemctl enable sddm
+
 
 printf "%s%sTerminado, reiniciando en 5....%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 5
