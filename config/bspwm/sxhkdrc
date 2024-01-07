@@ -17,7 +17,7 @@ super + Return
  
 # program launcher
 super + d
-	OpenApps --floating
+	OpenApps --menu
  
 # make sxhkd reload its configuration files:
 super + Escape
