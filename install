@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-#  ╦═╗╦╔═╗╔═╗  ╦╔╗╔╔═╗╔╦╗╔═╗╦  ╦  ╔═╗╦═╗
-#  ╠╦╝║║  ║╣   ║║║║╚═╗ ║ ╠═╣║  ║  ║╣ ╠╦╝
-#  ╩╚═╩╚═╝╚═╝  ╩╝╚╝╚═╝ ╩ ╩ ╩╩═╝╩═╝╚═╝╩╚═
-#	Script to install my dotfiles
-#   Author: z0mbi3
-#	url: https://github.com/gh0stzk
 
 function pausa(){
 read -p "$*"
@@ -33,7 +27,7 @@ fi
 
 dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd rtkit \
 			  alacritty brightnessctl dunst rofi lsd stalonetray \
-			  jq polkit-gnome git playerctl mpd xclip nano \
+			  jq polkit-gnome git playerctl mpd xclip zip nano \
 			  ncmpcpp geany ranger mpc mousepad xdo xdotool jgmenu \
 			  feh ueberzug maim pamixer libwebp xdg-user-dirs \
 			  webp-pixbuf-loader xorg-xprop xorg-xkill physlock papirus-icon-theme \
