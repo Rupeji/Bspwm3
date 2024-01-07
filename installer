@@ -247,4 +247,4 @@ sudo sed -i -e 's/Current=/Current=simple-sddm/g' /usr/lib/sddm/sddm.conf.d/defa
 
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
-#reboot
+reboot
