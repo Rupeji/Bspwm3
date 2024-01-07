@@ -50,7 +50,7 @@ WIDGET_DIR="$HOME/.config/bspwm/eww"
 			firefox
 			;;
 		--editor)
-			geany
+			mousepad
 			;;
 		--telegram)
 			telegram-desktop
