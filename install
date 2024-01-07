@@ -80,8 +80,11 @@ sudo cp -rv $HOME/Bspwm3/misc/fonts/* "/usr/share/fonts/"
 cp -rv $HOME/Bspwm3/home/themes/themes.zip "$HOME/.themes/"
 cd .themes/
 unzip themes.zip
+sleep 2
 rm themes.zip
+sleep 1
 sed -i -e 's/name="Raleigh"/name="Dracula"/g' $HOME/.gtkrc-2.0
+sleep 1
 cd
 cd /usr/share/fonts
 sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
