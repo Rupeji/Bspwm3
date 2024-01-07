@@ -206,43 +206,4 @@ sudo sed -i -e 's/Current=/Current=simple-sddm/g' /usr/lib/sddm/sddm.conf.d/defa
 
 printf "%s%sTerminado, reiniciando en 5....%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 5
-
-            echo -e "Instalando YAY"
-            echo
-	    sleep 2
-	    cd "${HOME}"
-            git clone "https://aur.archlinux.org/yay.git"
-            cd ${HOME}/yay
-            makepkg -si --noconfirm
-            echo
-	    echo -e "Pulsa [Enter] para continuar..."
-            echo
-	    pausa
-
-            echo -e "${ColorNegrita}${Fondo}Instalando PAMAC${ENDCOLOR}"
-            echo
-	    sleep 2
-            yay -S pamac-aur-git --noconfirm
-            echo
-	    echo -e "Pulsa [Enter] para continuar..."
-            echo
-	    pausa
-
-            echo -e "Instalando Repositorios de BlackArch"
-            echo
-	    sleep 2
-            cd ${HOME}/repos
-	    mkdir blackarch
-	    cd ${HOME}/repos/blackarch
-            curl -O https://blackarch.org/strap.sh
-	    chmod +x strap.sh
-	    sudo ./strap.sh
-	    pacman -Sy
-            echo
-	    echo -e "Pulsa [Enter] para continuar..."
-            echo
-	    pausa
-
-
-
 reboot
