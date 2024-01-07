@@ -20,32 +20,6 @@ CNC=$(tput sgr0)
 backup_folder=~/.RiceBackup
 date=$(date +%Y%m%d-%H%M%S)
 
-logo () {
-	
-	local text="${1:?}"
-	echo -en "                                  
-                  `-`
-                 `.o+`
-                 `ooo/
-                `+oooo:
-               `+oooooo:
-              `-+oooooo+:
-             `/:-:++oooo+:
-            `/++++/+++++++:
-           `/++++++++++++++:
-          `/+++ooooooooooooo/`
-        `./ooosssso++osssssso+`
-       `.oossssso-````/ossssss+`
-      `-osssssso.      :ssssssso.
-     `:osssssss/        osssso+++.
-    `/ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
-                        
-			  Arch Installer\n\n"
-    printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}" "${CNC}" "${CRE}" "${CNC}"
-}
 
 ########## ---------- You must not run this as root ---------- ##########
 
@@ -54,24 +28,8 @@ if [ "$(id -u)" = 0 ]; then
     exit 1
 fi
 
-########## ---------- Welcome ---------- ##########
-
-logo "Welcome!"
-printf '%s%sDeseas instalar.%s\n\n' "${BLD}" "${CRE}" "${CNC}"
-
-while true; do
-	read -rp " Do you wish to continue? [y/N]: " yn
-		case $yn in
-			[Yy]* ) break;;
-			[Nn]* ) exit;;
-			* ) printf " Error: just write 'y' or 'n'\n\n";;
-		esac
-    done
-clear
-
 ########## ---------- Install packages ---------- ##########
 
-logo "Installing needed packages.."
 
 dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd \
 			  alacritty brightnessctl dunst rofi lsd stalonetray \
@@ -115,7 +73,7 @@ clear
 
 ########## ---------- Copy the Rice! ---------- ##########
 
-logo "Installing dotfiles.."
+
 printf "Copying files to respective directories..\n"
 
 mkdir "$HOME/.config/"
@@ -138,7 +96,7 @@ sleep 3
 
 ########## ---------- Installing Paru & others ---------- ##########
 
-logo "installing Paru, Eww, tdrop & xqp"
+
 
 # Installing Paru
 	if command -v paru >/dev/null 2>&1; then
@@ -203,7 +161,7 @@ fi
 
 ########## ---------- Enabling MPD service ---------- ##########
 
-logo "Enabling mpd service"
+
 
 # Verifica si el servicio mpd está habilitado a nivel global (sistema)
 	if systemctl is-enabled --quiet mpd.service; then
@@ -220,7 +178,7 @@ sleep 2
 
 ########## --------- Changing shell to zsh ---------- ##########
 
-logo "Changing default shell to zsh"
+
 printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
 # Cambia la shell a zsh
 cp -rv $HOME/Bspwm3/home/.zshrc "$HOME"
@@ -237,8 +195,6 @@ sudo cp -f Zsh/powerlevel10k/user/* "$HOME/"
 sudo cp -f Zsh/powerlevel10k/root/* "/root/"
 sudo cp -f $HOME/Bspwm3/config/zsh/* "/root/.config/zsh/"`
 
-
-logo "Changing default sddm theme"
 
 git clone https://github.com/Rupeji/simple-sddm.git ~/simple-sddm
 sudo mv ~/simple-sddm /usr/share/sddm/themes/
