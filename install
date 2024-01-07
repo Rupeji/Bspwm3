@@ -219,7 +219,6 @@ sleep 5
             echo
 	    pausa
 
-
             echo -e "${ColorNegrita}${Fondo}Instalando PAMAC${ENDCOLOR}"
             echo
 	    sleep 2
@@ -228,22 +227,6 @@ sleep 5
 	    echo -e "Pulsa [Enter] para continuar..."
             echo
 	    pausa
-
-
-            echo -e "Instalando Repositorios AUR"
-            echo
-	    sleep 2
-            cd "${HOME}"
-	    mkdir repos
-	    cd ${HOME}/repos
-	    git clone https://aur.archlinux.org/paru-bin.git
-	    cd paru-bin/
-	    makepkg -si --noconfirm
-            echo
-	    echo -e "Pulsa [Enter] para continuar..."
-            echo
-	    pausa
-
 
             echo -e "Instalando Repositorios de BlackArch"
             echo
