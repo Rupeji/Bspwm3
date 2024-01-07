@@ -237,4 +237,4 @@ printf "\n%s%sEscribe: sudo nano /usr/lib/sddm/sddm.conf.d/default.conf y en The
 
 printf "%s%sShell changed to zsh. Please reboot.%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 
-reboot
+#reboot
