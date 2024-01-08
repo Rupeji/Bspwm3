@@ -34,7 +34,7 @@ dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd rtkit \
 			  papirus-icon-theme ttf-inconsolata sddm wget ttf-joypixels \
 			  ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd \
 			  zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting \
-			  imagemagick xorg-xdpyinfo xorg-xsetroot xorg-xwininfo xorg-xrandr neofetch \
+			  imagemagick xorg-xdpyinfo xorg-xsetroot xorg-xwininfo xorg-xrandr fastfetch \
 			  thunar firefox qt5-quickcontrols2 qt5-graphicaleffects qt5-svg lxappearance unzip)
 
 is_installed() {
