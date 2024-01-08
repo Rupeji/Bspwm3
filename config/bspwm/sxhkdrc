@@ -138,6 +138,11 @@ alt + super + {Left,Down,Up,Right}
 super + shift + f
 	/usr/bin/firefox
 
+# move focused window to the next workspace and then switch to that workspace
+shift + super + ctrl + { Right,Left }
+    DIR={next.local,prev.local}; \
+    bspc node -d "$DIR" --follow
+
 #####
 
 # Apps (browser, editor, filemanager)
