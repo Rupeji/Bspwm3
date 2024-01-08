@@ -81,7 +81,7 @@ cp -rv $HOME/Bspwm3/home/themes/themes.zip "$HOME/.themes/"
 cd ~/.themes/
 unzip themes.zip
 rm themes.zip
-sed -i -e 's/name="Raleigh"/name="Dracula"/g' $HOME/.gtkrc-2.0
+
 sleep 1
 cd
 cd /usr/share/fonts
@@ -184,6 +184,8 @@ sleep 2
 printf "\n%s%sChanging your shell to zsh. Your root password is needed.%s\n\n" "${BLD}" "${CYE}" "${CNC}"
 # Cambia la shell a zsh
 cp -rv $HOME/Bspwm3/home/.zshrc "$HOME"
+cp -rv $HOME/Bspwm3/home/.gtkrc-2.0 "$HOME"
+#sed -i -e 's/name="Raleigh"/name="Dracula"/g' $HOME/.gtkrc-2.0
 cp -rv $HOME/Bspwm3/home/Music "$HOME"
 sudo usermod --shell /usr/bin/zsh $USER
 sudo usermod --shell /usr/bin/zsh root
