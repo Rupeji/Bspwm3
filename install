@@ -25,7 +25,7 @@ fi
 ########## ---------- Install packages ---------- ##########
 
 
-dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd rtkit \
+dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd rtkit gvfs \
 			  alacritty brightnessctl dunst rofi lsd stalonetray \
 			  jq polkit-gnome git playerctl mpd xclip zip nano \
 			  ncmpcpp geany ranger mpc mousepad xdo xdotool kitty jgmenu \
