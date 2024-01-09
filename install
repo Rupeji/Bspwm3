@@ -28,7 +28,7 @@ fi
 dependencias=(base-devel rustup pacman-contrib bspwm polybar sxhkd rtkit gvfs \
 			  alacritty brightnessctl dunst rofi lsd stalonetray \
 			  jq polkit-gnome git playerctl mpd xclip zip nano \
-			  ncmpcpp geany ranger mpc mousepad xdo xdotool kitty jgmenu \
+			  ncmpcpp ranger mpc mousepad xdo xdotool kitty jgmenu \
 			  feh ueberzug maim pamixer libwebp xdg-user-dirs \
 			  webp-pixbuf-loader xorg-xprop xorg-xkill physlock \
 			  papirus-icon-theme ttf-inconsolata sddm wget ttf-joypixels \
